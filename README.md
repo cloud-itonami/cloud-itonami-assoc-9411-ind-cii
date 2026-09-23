@@ -47,11 +47,19 @@ fabricate one.
 
 ## Data
 
-- `src/association/facts.cljc` — the catalog, source of truth.
+- `src/association/facts.kotoba` — the catalog (`association.facts`),
+  source of truth.
 - `schema/association-rule.edn` — DataScript schema.
 - `data/datascript-tx.edn` — derived DataScript tx-data (query this
   alongside other `cloud-itonami`/`etzhayyim` compliance-fact sources via
   `com-junkawasaki/root`'s `scripts/compliance-fact-query.cljs`).
+- `src/association_facts.kotoba` — the same catalog generated from the
+  data file, compilable with `amu` to JS, wasm and both native ISAs.
+
+[`docs/operator-quickstart.md`](docs/operator-quickstart.md) shows how to
+read the data file, compile and query the port, check that the two
+agree, and check a citation. Scripted fetches of `cii.in` get an Imperva
+challenge page (HTTP 200), so a 200 is not proof the page was read.
 
 Both entries directly WebFetch-verified against `cii.in`'s own
 official History page: the 1895 founding of the Engineering and Iron
